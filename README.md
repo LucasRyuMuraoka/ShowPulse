@@ -14,12 +14,12 @@ O ShowPulse é uma aplicação web simples e eficaz com o objetivo de centraliza
 ## Funcionalidades Principais
 
 - **Login e Autenticação**: Apenas usuários logados podem acessar as páginas e APIs de shows.
--**Home**: Mostra o próximo show daqui a um mês e abaixo tem um carrossel de imagens em array.
+- **Home**: Mostra o próximo show daqui a um mês e abaixo tem um carrossel de imagens em array.
 - **Exibição de Shows**: Mostra os shows cadastrados no sistema, com informações detalhadas como data, local e preço.
 - **Busca de Shows**: Permite ao usuário buscar shows específicos pelo nome com um prompt, exibindo os resultados diretamente na página.
--**Análises**: É apresentando dois gráficos dinâmicos usando Chart.js.
--**Contato**: Possui um formulário para entrar em contato que depois de respondido mostra um alert e redireciona o usuário para a home.
--**Sobre Nós**: Mostra uma pequena mensagem na tela sobre a ShowPulse
+- **Análises**: É apresentando dois gráficos dinâmicos usando Chart.js.
+- **Contato**: Possui um formulário para entrar em contato que depois de respondido mostra um alert e redireciona o usuário para a home.
+- **Sobre Nós**: Mostra uma pequena mensagem na tela sobre a ShowPulse
 - **Navegação Intuitiva**: Um menu de navegação simples para acesso rápido às páginas principais.
 
 ## Como Executar o Projeto
@@ -48,17 +48,17 @@ npx nodemon server.js
 
 ##Bibliotecas Utilizadas
 
--**Express.js**: Framework web para Node.js para criação do servidor e roteamento.
--**Nodemon**: Ferramenta para reiniciar automaticamente o servidor durante o desenvolvimento.
--**JWT (JsonWebToken)**: Para autenticação segura dos usuários.
--**Chart.js**: Biblioteca para criação de gráficos dinâmicos e interativos.
--**Body-Parser**: Middleware para processamento de requisições JSON.
--**Cors**: Habilita o compartilhamento de recursos entre diferentes origens (Cross-Origin Resource Sharing).
--**HTML/CSS/JavaScript**: Utilizados para a estruturação, estilo e interatividade das páginas.
+- **Express.js**: Framework web para Node.js para criação do servidor e roteamento.
+- **Nodemon**: Ferramenta para reiniciar automaticamente o servidor durante o desenvolvimento.
+- **JWT (JsonWebToken)**: Para autenticação segura dos usuários.
+- **Chart.js**: Biblioteca para criação de gráficos dinâmicos e interativos.
+- **Body-Parser**: Middleware para processamento de requisições JSON.
+- **Cors**: Habilita o compartilhamento de recursos entre diferentes origens (Cross-Origin Resource Sharing).
+- **HTML/CSS/JavaScript**: Utilizados para a estruturação, estilo e interatividade das páginas.
 
 ##Tecnologias Utilizadas
 
--**Node.js**: Ambiente de execução JavaScript no backend.
--**Express.js**: Framework para criação do servidor e rotas.
--**JSON**: Utilizado como "banco de dados" para armazenar as informações dos usuários e shows.
--**HTML/CSS/JavaScript**: Usados para criar as páginas e interações do frontend.
+- **Node.js**: Ambiente de execução JavaScript no backend.
+- **Express.js**: Framework para criação do servidor e rotas.
+- **JSON**: Utilizado como "banco de dados" para armazenar as informações dos usuários e shows.
+- **HTML/CSS/JavaScript**: Usados para criar as páginas e interações do frontend.
