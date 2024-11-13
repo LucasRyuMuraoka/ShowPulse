@@ -48,7 +48,7 @@ Para executar o projeto na sua máquina, siga os seguintes passos:
 
 7. A primeira página será a de Login e para logar e ter acesso ao site é preciso pegar o username e a senha do “users.json” que se encontra dentro da pasta “data”. Depois de entrar com as credenciais o site estará funcionando normalmente.
 
-## Bibliotecas Utilizadas
+## Bibliotecas JS Utilizadas
 
 - **Express.js**: Framework web para Node.js para criação do servidor e roteamento.
 - **Nodemon**: Ferramenta para reiniciar automaticamente o servidor durante o desenvolvimento.
@@ -56,7 +56,6 @@ Para executar o projeto na sua máquina, siga os seguintes passos:
 - **Chart.js**: Biblioteca para criação de gráficos dinâmicos e interativos.
 - **Body-Parser**: Middleware para processamento de requisições JSON.
 - **Cors**: Habilita o compartilhamento de recursos entre diferentes origens (Cross-Origin Resource Sharing).
-- **HTML/CSS/JavaScript**: Utilizados para a estruturação, estilo e interatividade das páginas.
 
 ## Tecnologias Utilizadas
 
