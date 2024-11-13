@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "name": "Rock Festival",
+    "date": "2024-12-01",
+    "location": "São Paulo",
+    "availableTickets": 200,
+    "price": 150,
+    "url": "https://culturalizabh.com.br/wp-content/uploads/2023/04/20230415_190048-1-scaled-e1681741493405-1210x642.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Jazz Night",
+    "date": "2024-12-05",
+    "location": "Rio de Janeiro",
+    "availableTickets": 50,
+    "price": 100,
+    "url": "https://swissxplorer.com/wp-content/uploads/2024/08/jazz-Festival-in-switzerland-768x512.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Electronic Beats Party",
+    "date": "2024-11-15",
+    "location": "Curitiba",
+    "availableTickets": 300,
+    "price": 200,
+    "url": "https://www.electronicbeats.net/app/uploads/fly-images/85171/budapest-first-800x450-c.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Classical Music Gala",
+    "date": "2024-11-20",
+    "location": "Porto Alegre",
+    "availableTickets": 100,
+    "price": 180,
+    "url": "https://baruthotels.com/uploads/news/trf-end.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Hip Hop Jam Session",
+    "date": "2024-12-10",
+    "location": "Brasília",
+    "availableTickets": 120,
+    "price": 90,
+    "url": "https://polifoniaperiferica.com.br/wp-content/uploads/2012/07/show-inqu%C3%A9rito-300x200.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Pop Hits Concert",
+    "date": "2024-12-15",
+    "location": "Salvador",
+    "availableTickets": 250,
+    "price": 130,
+    "url": "https://aconteceubicas.com.br/wp-content/uploads/2023/02/The-Weeknd-Show-800x533.webp-696x464.webp"
+  },
+  {
+    "id": 7,
+    "name": "Reggae Vibes Night",
+    "date": "2024-12-22",
+    "location": "Recife",
+    "availableTickets": 180,
+    "price": 110,
+    "url": "https://aloalobahia.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-16-at-17.02.30-2.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Samba Carnival",
+    "date": "2025-01-05",
+    "location": "Rio de Janeiro",
+    "availableTickets": 400,
+    "price": 160,
+    "url": "https://bookers.s3.amazonaws.com/pages/aquecendo-antes-do-desfile-concentracao.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Indie Rock Live",
+    "date": "2025-01-12",
+    "location": "Belo Horizonte",
+    "availableTickets": 220,
+    "price": 140,
+    "url": "https://jornaloprecursor.com.br/userfiles/uploads/imagens/materias/2022/11/original/16b635f46be398384a603a5de2c7f13e.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Blues Festival",
+    "date": "2025-02-01",
+    "location": "Fortaleza",
+    "availableTickets": 150,
+    "price": 120,
+    "url": "https://anoticiadoceara.com.br/wp-content/uploads/2024/01/festival-jazz-blues-fortaleza-e1706044251825.webp"
+  },
+  {
+    "id": 11,
+    "name": "Heavy Metal Bash",
+    "date": "2025-02-14",
+    "location": "Manaus",
+    "availableTickets": 80,
+    "price": 200,
+    "url": "https://cdn.ome.lt/-WbVLMT-hVa5MkwM8LI4GcMPclA=/fit-in/837x500/smart/uploads/conteudo/fotos/Kiss.PNG"
+  },
+  {
+    "id": 12,
+    "name": "Acoustic Night",
+    "date": "2025-02-25",
+    "location": "Florianópolis",
+    "availableTickets": 75,
+    "price": 95,
+    "url": "https://www.natal.rn.gov.br/storage/app/media/noticias/40577_Original.jpeg"
+  },
+  {
+    "id": 13,
+    "name": "Trap Show",
+    "date": "2025-03-20",
+    "location": "São Paulo",
+    "availableTickets": 80,
+    "price": 380,
+    "url": "https://cdn.folhape.com.br/img/pc/450/450/dn_arquivo/2023/01/recife-trap-festival.jpg"
+  }
+]

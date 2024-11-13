@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/pages/contat/index.css" />
+    <link rel="icon" href="/assets/images/icon.png" />
+
+    <title>Contato</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/pages/home/index.html"
+        ><h1>Show<span>Pulse</span></h1></a
+      >
+
+      <nav class="items">
+        <a href="/pages/shows/index.html">Shows</a>
+        <a href="/pages/busca/index.html">Buscar</a>
+        <a href="/pages/graf/index.html">Análises</a>
+        <a href="/pages/contat/index.html">Contato</a>
+        <a href="/pages/sobre/index.html">Sobre Nós</a>
+      </nav>
+    </header>
+
+    <section class="section01">
+      <div class="contact-card">
+        <h2>Entre em Contato Conosco</h2>
+        <form id="contact-form">
+          <label for="name">Nome:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Digite seu nome"
+          />
+
+          <label for="email">E-mail:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Digite seu e-mail"
+          />
+
+          <label for="message">Mensagem:</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            placeholder="Digite sua mensagem"
+          ></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <div id="alert-message" class="alert"></div>
+    </section>
+
+    <script>
+      //Função Alert
+      const form = document.getElementById("contact-form");
+      const alertMessage = document.getElementById("alert-message");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Obter os valores dos inputs
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Verifica se todos os campos foram preenchidos
+        if (name && email && message) {
+          alertMessage.innerHTML = "Mensagem enviada com sucesso!";
+          alertMessage.classList.add("success");
+          alertMessage.classList.remove("error");
+          alertMessage.style.display = "block";
+
+          setTimeout(function () {
+            alert(
+              "Mensagem Enviada com Sucesso! \nObrigado por Entrar em Contato"
+            );
+            window.location.href = "/pages/home/index.html";
+          }, 1500);
+        } else {
+          alertMessage.innerHTML = "Por favor, preencha todos os campos.";
+          alertMessage.classList.add("error");
+          alertMessage.classList.remove("success");
+          alertMessage.style.display = "block";
+        }
+      });
+    </script>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="footer-copy">
+          <p>
+            &copy; 2024 Show<span>Pulse</span>. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

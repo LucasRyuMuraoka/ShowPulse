@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/pages/home/index.css" />
+    <link rel="icon" href="/assets/images/icon.png" />
+
+    <title>Home</title>
+    <script>
+      // Funções para o Próximo Show
+      const shows = [
+        {
+          id: 1,
+          name: "Rock Festival",
+          date: "2024-12-25",
+          location: "São Paulo",
+          availableTickets: 200,
+          price: 150,
+          url: "https://culturalizabh.com.br/wp-content/uploads/2023/04/20230415_190048-1-scaled-e1681741493405-1210x642.jpg",
+        },
+        {
+          id: 2,
+          name: "Jazz Night",
+          date: "2024-12-05",
+          location: "Rio de Janeiro",
+          availableTickets: 50,
+          price: 100,
+          url: "https://swissxplorer.com/wp-content/uploads/2024/08/jazz-Festival-in-switzerland-768x512.jpg",
+        },
+        {
+          id: 3,
+          name: "Electronic Beats Party",
+          date: "2024-11-15",
+          location: "Curitiba",
+          availableTickets: 300,
+          price: 200,
+          url: "https://www.electronicbeats.net/app/uploads/fly-images/85171/budapest-first-800x450-c.jpg",
+        },
+        {
+          id: 4,
+          name: "Classical Music Gala",
+          date: "2024-11-20",
+          location: "Porto Alegre",
+          availableTickets: 100,
+          price: 180,
+          url: "https://baruthotels.com/uploads/news/trf-end.jpg",
+        },
+        {
+          id: 5,
+          name: "Hip Hop Jam Session",
+          date: "2024-12-10",
+          location: "Brasília",
+          availableTickets: 120,
+          price: 90,
+          url: "https://polifoniaperiferica.com.br/wp-content/uploads/2012/07/show-inqu%C3%A9rito-300x200.jpg",
+        },
+        {
+          id: 6,
+          name: "Pop Hits Concert",
+          date: "2024-12-15",
+          location: "Salvador",
+          availableTickets: 250,
+          price: 130,
+          url: "https://aconteceubicas.com.br/wp-content/uploads/2023/02/The-Weeknd-Show-800x533.webp-696x464.webp",
+        },
+        {
+          id: 7,
+          name: "Reggae Vibes Night",
+          date: "2024-12-22",
+          location: "Recife",
+          availableTickets: 180,
+          price: 110,
+          url: "https://aloalobahia.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-16-at-17.02.30-2.jpeg",
+        },
+        {
+          id: 8,
+          name: "Samba Carnival",
+          date: "2025-01-05",
+          location: "Rio de Janeiro",
+          availableTickets: 400,
+          price: 160,
+          url: "https://bookers.s3.amazonaws.com/pages/aquecendo-antes-do-desfile-concentracao.jpg",
+        },
+        {
+          id: 9,
+          name: "Indie Rock Live",
+          date: "2025-01-12",
+          location: "Belo Horizonte",
+          availableTickets: 220,
+          price: 140,
+          url: "https://jornaloprecursor.com.br/userfiles/uploads/imagens/materias/2022/11/original/16b635f46be398384a603a5de2c7f13e.jpg",
+        },
+        {
+          id: 10,
+          name: "Blues Festival",
+          date: "2025-02-01",
+          location: "Fortaleza",
+          availableTickets: 150,
+          price: 120,
+          url: "https://anoticiadoceara.com.br/wp-content/uploads/2024/01/festival-jazz-blues-fortaleza-e1706044251825.webp",
+        },
+        {
+          id: 11,
+          name: "Heavy Metal Bash",
+          date: "2025-02-14",
+          location: "Manaus",
+          availableTickets: 80,
+          price: 200,
+          url: "https://cdn.ome.lt/-WbVLMT-hVa5MkwM8LI4GcMPclA=/fit-in/837x500/smart/uploads/conteudo/fotos/Kiss.PNG",
+        },
+        {
+          id: 12,
+          name: "Acoustic Night",
+          date: "2025-02-25",
+          location: "Florianópolis",
+          availableTickets: 75,
+          price: 95,
+          url: "https://www.natal.rn.gov.br/storage/app/media/noticias/40577_Original.jpeg",
+        },
+      ];
+
+      // Variáveis para o mês e ano
+      let selectedMonth = 12;
+      let selectedYear = 2024;
+
+      // Função para buscar o primeiro show do mês e ano selecionados
+      function fetchShowsByMonthYear(month, year) {
+        const startOfMonth = new Date(year, month - 1, 1); // Começo do mês (01/12/2024)
+        const endOfMonth = new Date(year, month, 0); // Último dia do mês (31/12/2024)
+
+        // Filtrando os shows dentro do mês selecionado
+        const filteredShows = shows.filter((show) => {
+          const showDate = new Date(show.date);
+          return showDate >= startOfMonth && showDate <= endOfMonth;
+        });
+
+        // Se houver shows no mês, ordenamos por data para pegar o primeiro show
+        if (filteredShows.length > 0) {
+          // Ordenando os shows por data crescente (do mais antigo para o mais recente)
+          filteredShows.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateA - dateB; // Menor data vem primeiro
+          });
+
+          // Pegando o primeiro show do mês
+          const upcomingShow = filteredShows[0];
+
+          const showCard = `
+        <div class="show-card">
+          <img src="${upcomingShow.url}" alt="${upcomingShow.name}" title="${upcomingShow.name}">
+          <h3>${upcomingShow.name}</h3>
+          <p><strong>Data:</strong> ${upcomingShow.date}</p>
+          <p><strong>Local:</strong> ${upcomingShow.location}</p>
+          <p class="price">Preço: R$ ${upcomingShow.price}</p>
+          <p class="available-tickets">Ingressos disponíveis: ${upcomingShow.availableTickets}</p>
+        </div>
+      `;
+
+          document.getElementById("next-show").innerHTML = showCard;
+        } else {
+          document.getElementById("next-show").innerHTML =
+            "Nenhum show encontrado para este mês.";
+        }
+      }
+
+      // Funções para o Carrosel de Imagens
+      const imagesArray = [
+        "https://culturalizabh.com.br/wp-content/uploads/2023/04/20230415_190048-1-scaled-e1681741493405-1210x642.jpg",
+        "https://swissxplorer.com/wp-content/uploads/2024/08/jazz-Festival-in-switzerland-768x512.jpg",
+        "https://www.electronicbeats.net/app/uploads/fly-images/85171/budapest-first-800x450-c.jpg",
+        "https://baruthotels.com/uploads/news/trf-end.jpg",
+        "https://polifoniaperiferica.com.br/wp-content/uploads/2012/07/show-inqu%C3%A9rito-300x200.jpg",
+        "https://aconteceubicas.com.br/wp-content/uploads/2023/02/The-Weeknd-Show-800x533.webp-696x464.webp",
+        "https://aloalobahia.com/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-16-at-17.02.30-2.jpeg",
+      ];
+
+      let currentImageIndex = 0;
+
+      function showImage(index) {
+        const carouselImagesDiv = document.getElementById("carousel-images");
+        carouselImagesDiv.innerHTML = `<img src="${imagesArray[index]}" alt="Show Image">`;
+      }
+
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % imagesArray.length;
+        showImage(currentImageIndex);
+      }
+
+      function prevImage() {
+        currentImageIndex =
+          (currentImageIndex - 1 + imagesArray.length) % imagesArray.length;
+        showImage(currentImageIndex);
+      }
+
+      window.onload = () => {
+        fetchShowsByMonthYear(selectedMonth, selectedYear);
+        showImage(currentImageIndex);
+      };
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/pages/home/index.html"
+        ><h1>Show<span>Pulse</span></h1></a
+      >
+
+      <nav class="items">
+        <a href="/pages/shows/index.html">Shows</a>
+        <a href="/pages/busca/index.html">Buscar</a>
+        <a href="/pages/graf/index.html">Análises</a>
+        <a href="/pages/contat/index.html">Contato</a>
+        <a href="/pages/sobre/index.html">Sobre Nós</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section01">
+        <div class="texto">
+          <h2>
+            Bem-vindo ao Show<span>Pulse</span>! <br /><br />Conectando você aos
+            melhores shows e proporcionando experiências inesquecíveis, com os
+            eventos mais emocionantes e os artistas que você mais ama!
+          </h2>
+        </div>
+
+        <div class="card">
+          <h1>Próximo Show</h1>
+          <div class="shows-container" id="next-show">Carregando...</div>
+        </div>
+      </section>
+
+      <section class="section02">
+        <h2>A Cada Show uma Nova Memória</h2>
+        <div class="content">
+          <p>
+            O Show<span>Pulse</span> nasceu com a paixão de conectar pessoas à
+            música e entretenimento ao vivo. Desde os primeiros eventos, a
+            missão foi clara: proporcionar experiências inesquecíveis e
+            aproximar fãs de seus artistas favoritos. Com dedicação e inovação,
+            o Show<span>Pulse</span> se tornou uma plataforma de referência para
+            shows e festivais, reunindo as melhores atrações e criando momentos
+            únicos para todos.
+          </p>
+
+          <div class="carousel">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <div class="carousel-images" id="carousel-images"></div>
+            <button class="next" onclick="nextImage()">&#10095;</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="footer-copy">
+          <p>
+            &copy; 2024 Show<span>Pulse</span>. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

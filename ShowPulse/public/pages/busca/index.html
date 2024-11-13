@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/pages/busca/index.css" />
+    <link rel="icon" href="/assets/images/icon.png" />
+
+    <title>Buscar</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/pages/home/index.html"
+        ><h1>Show<span>Pulse</span></h1></a
+      >
+
+      <nav class="items">
+        <a href="/pages/shows/index.html">Shows</a>
+        <a href="/pages/busca/index.html">Buscar</a>
+        <a href="/pages/graf/index.html">Análises</a>
+        <a href="/pages/contat/index.html">Contato</a>
+        <a href="/pages/sobre/index.html">Sobre Nós</a>
+      </nav>
+    </header>
+
+    <section class="section01">
+      <h1>Buscar Shows</h1>
+      <p>Digite o nome do show que deseja buscar.</p>
+      <button id="search-btn">Buscar Show</button>
+
+      <div class="search-results" id="search-results"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="footer-copy">
+          <p>
+            &copy; 2024 Show<span>Pulse</span>. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function searchShows() {
+        const token = localStorage.getItem("token");
+        const showName = prompt("Digite o nome do show que deseja buscar:");
+
+        if (!showName) {
+          alert("Por favor, insira um nome de show para buscar.");
+          return;
+        }
+
+        if (!token) {
+          alert("Você precisa estar logado!");
+          window.location.href = "/"; // Redireciona para a página de login se não houver token
+          return;
+        }
+
+        fetch(`/api/shows?name=${encodeURIComponent(showName)}`, {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              if (response.status === 401) {
+                alert("Sessão expirada. Faça login novamente.");
+                window.location.href = "/";
+              } else {
+                alert("Erro ao buscar os shows. Tente novamente.");
+              }
+              throw new Error("Erro na resposta da API");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            let showsList = "";
+            if (data.length) {
+              data.forEach((show) => {
+                showsList += `
+                  <div class="show-card">
+                    <img src="${show.url}" alt="${show.name}">
+                    <h3>${show.name}</h3>
+                    <p><strong>Data:</strong> ${show.date}</p>
+                    <p><strong>Local:</strong> ${show.location}</p>
+                    <p class="price">Preço: R$ ${show.price}</p>
+                    <p class="available-tickets">Ingressos disponíveis: ${show.availableTickets}</p>
+                  </div>
+                `;
+              });
+              document.getElementById("search-results").innerHTML = showsList;
+            } else {
+              document.getElementById("search-results").innerHTML =
+                "Nenhum show encontrado com esse nome.";
+            }
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar os shows:", error);
+            alert("Erro ao buscar os shows.");
+          });
+      }
+
+      document
+        .getElementById("search-btn")
+        .addEventListener("click", searchShows);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body{
+  background-color: #41506b;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+
+  height: 14vh;
+  width: 100%;
+  padding: 20px;
+
+  background-color: #35bcbf;
+  font-family: Inter, sans-serif;
+
+  h1 {
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    color: white;
+
+    cursor: pointer;
+
+    font-family: Acumin Pro;
+  }
+
+  h1 span {
+    color: #90f6d7;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 10px;
+    gap: 25px;
+  }
+
+  a {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.section01 {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding-bottom: 20px;
+  width: 100%;
+  gap: 20px; 
+  overflow-x: hidden;
+
+  font-family: Inter, sans-serif;
+}
+
+.grafico-esquerda, .grafico-direita {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 90%; 
+  text-align: center;
+
+  margin-top: 70px;
+}
+
+canvas {
+  width: 100%; 
+  height: auto;
+  background-color: rgb(228, 228, 228); 
+  border-radius: 10px;
+}
+
+.titulo {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ffffff; /
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 8vh;
+  width: 100%;
+  padding: 20px;
+
+  background-color: #35bcbf;
+  color: white;
+  font-family: Inter, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+}
+
+.social-media {
+  display: flex;
+  gap: 25px;
+}
+
+.social-media a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #90f6d7;
+}
+
+.footer-copy p {
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+
+  span {
+    color: #90f6d7;
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/pages/graf/index.css" />
+    <link rel="icon" href="/assets/images/icon.png" />
+
+    <title>Análises</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/pages/home/index.html"
+        ><h1>Show<span>Pulse</span></h1></a
+      >
+
+      <nav class="items">
+        <a href="/pages/shows/index.html">Shows</a>
+        <a href="/pages/busca/index.html">Buscar</a>
+        <a href="/pages/graf/index.html">Análises</a>
+        <a href="/pages/contat/index.html">Contato</a>
+        <a href="/pages/sobre/index.html">Sobre Nós</a>
+      </nav>
+    </header>
+
+    <section class="section01">
+      <div class="grafico-esquerda">
+        <h1 class="titulo">Shows Mais Frequentados nos Últimos Meses</h1>
+        <canvas id="grafico-coluna" width="700" height="450"></canvas>
+      </div>
+
+      <div class="grafico-direita">
+        <h1 class="titulo">Gêneros de Shows Mais Pedidos</h1>
+        <canvas id="grafico-pizza" width="700" height="450"></canvas>
+      </div>
+
+      <script>
+        var ctx1 = document.getElementById("grafico-coluna").getContext("2d");
+        var chartGraph1 = new Chart(ctx1, {
+          type: "bar",
+          data: {
+            labels: [
+              "Rock Festival",
+              "Jazz Night",
+              "Pop Star Live",
+              "Classical Evening",
+              "Indie Jam",
+              "Electronic Beats",
+              "Folk Night",
+              "Hip-Hop Extravaganza",
+              "Reggae Vibes",
+              "Latin Fiesta",
+            ],
+            datasets: [
+              {
+                label: "Frequentação",
+                data: [200, 120, 150, 90, 130, 180, 100, 220, 140, 170],
+                backgroundColor: "#0734fbb7",
+                borderColor: "#0734fbb7",
+                borderWidth: 6,
+                fill: false,
+              },
+            ],
+          },
+          options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: "Shows Mais Frequentados nos Últimos Meses",
+                font: {
+                  size: 18,
+                  weight: "bold",
+                },
+                color: "#333",
+              },
+              legend: {
+                display: true,
+                position: "top",
+                labels: {
+                  font: {
+                    size: 16,
+                    weight: "bold",
+                  },
+                  color: "#000",
+                },
+              },
+            },
+          },
+        });
+
+        var ctx2 = document.getElementById("grafico-pizza").getContext("2d");
+        var chartGraph2 = new Chart(ctx2, {
+          type: "pie",
+          data: {
+            labels: ["Rock", "Pop", "Jazz", "Eletrônico", "Clássico"],
+            datasets: [
+              {
+                label: "Pedidos de Shows",
+                data: [30, 25, 20, 15, 10],
+                backgroundColor: [
+                  "rgba(255, 99, 132, 0.7)",
+                  "rgba(54, 162, 235, 0.7)",
+                  "rgba(75, 192, 192, 0.7)",
+                  "rgba(255, 206, 86, 0.7)",
+                  "rgba(153, 102, 255, 0.7)",
+                ],
+                borderColor: [
+                  "rgba(255, 99, 132, 1)",
+                  "rgba(54, 162, 235, 1)",
+                  "rgba(75, 192, 192, 1)",
+                  "rgba(255, 206, 86, 1)",
+                  "rgba(153, 102, 255, 1)",
+                ],
+                borderWidth: 3,
+                hoverOffset: 10,
+              },
+            ],
+          },
+          options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: "Distribuição de Pedidos de Shows por Gênero",
+                font: {
+                  size: 18,
+                  weight: "bold",
+                },
+                color: "#333",
+              },
+              legend: {
+                display: true,
+                position: "top",
+                labels: {
+                  font: {
+                    size: 16,
+                    weight: "bold",
+                  },
+                  color: "#000",
+                },
+              },
+            },
+          },
+        });
+      </script>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="footer-copy">
+          <p>
+            &copy; 2024 Show<span>Pulse</span>. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

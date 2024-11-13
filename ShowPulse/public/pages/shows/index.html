@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/pages/shows/index.css" />
+    <link rel="icon" href="/assets/images/icon.png" />
+
+    <title>Shows</title>
+    <script>
+      function fetchShows() {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          alert("Você precisa estar logado!");
+          window.location.href = "/";
+          return;
+        }
+
+        fetch("/api/shows", {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.length) {
+              let showsList = "";
+              data.forEach((show) => {
+                showsList += `
+              <div class="show-card">
+                <img src="${show.url}" alt="${show.name}">
+                <h3>${show.name}</h3>
+                <p><strong>Data:</strong> ${show.date}</p>
+                <p><strong>Local:</strong> ${show.location}</p>
+                <p class="price">Preço: R$ ${show.price}</p>
+                <p class="available-tickets">Ingressos disponíveis: ${show.availableTickets}</p>
+              </div>
+            `;
+              });
+              document.getElementById("shows").innerHTML = showsList;
+            } else {
+              document.getElementById("shows").innerHTML =
+                "Nenhum show disponível";
+            }
+          })
+          .catch((error) => {
+            console.error("Erro ao carregar os shows:", error);
+            alert("Erro ao carregar os shows.");
+          });
+      }
+
+      window.onload = fetchShows;
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/pages/home/index.html"
+        ><h1>Show<span>Pulse</span></h1></a
+      >
+
+      <nav class="items">
+        <a href="/pages/shows/index.html">Shows</a>
+        <a href="/pages/busca/index.html">Buscar</a>
+        <a href="/pages/graf/index.html">Análises</a>
+        <a href="/pages/contat/index.html">Contato</a>
+        <a href="/pages/sobre/index.html">Sobre Nós</a>
+      </nav>
+    </header>
+
+    <section class="section01">
+      <h1>Lista de Shows</h1>
+      <div class="shows-container" id="shows">Carregando...</div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="social-media">
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="footer-copy">
+          <p>
+            &copy; 2024 Show<span>Pulse</span>. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
