@@ -38,11 +38,11 @@ Para executar o projeto na sua máquina, siga os seguintes passos:
 
 2. No terminal, navegue até o diretório raiz do projeto e execute o comando para instalar as dependências:
 
-  npm install
+- npm install
 
 4. Após a instalação, inicie o servidor com o comando:
 
-  npx nodemon server.js
+- npx nodemon server.js
 
 6. O projeto será executado no endereço http://localhost:3000.
 
